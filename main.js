@@ -6,7 +6,6 @@ const crypto = require('node:crypto')
 // Data
 const students = require('./students.json')
 const { validateStudent, validateModificationStudent } = require('./schemas/movies')
-const { log } = require('node:console')
 
 const app = express()
 app.disable('x-powered-by')
