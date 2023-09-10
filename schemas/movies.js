@@ -1,4 +1,4 @@
-const z = require('zod')
+import z from 'zod'
 
 const studentSchema = z.object({
   name: z.string(),
@@ -6,15 +6,10 @@ const studentSchema = z.object({
   phone: z.number().int().positive()
 })
 
-function validateStudent (object) {
+export function validateStudent (object) {
   return studentSchema.safeParse(object)
 }
 
-function validateModificationStudent (object) {
+export function validateModificationStudent (object) {
   return studentSchema.partial().safeParse(object)
-}
-
-module.exports = {
-  validateStudent,
-  validateModificationStudent
 }

@@ -1,14 +1,8 @@
-### Obtener mensaje del home
-GET http://localhost:1234
-
 ### Obtener todos los alumnos
 GET http://localhost:1234/students
 
 ### Obtener alumno por ID
 GET http://localhost:1234/students/1
-
-### Obtener alumnos por graduación
-GET http://localhost:1234/students?graduation=Verde
 
 ### Obtener alumnos por graduación
 GET http://localhost:1234/students?graduation=Verde
