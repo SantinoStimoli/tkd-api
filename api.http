@@ -1,0 +1,32 @@
+### Obtener mensaje del home
+GET http://localhost:1234
+
+### Obtener todos los alumnos
+GET http://localhost:1234/students
+
+### Obtener alumno por ID
+GET http://localhost:1234/students/1
+
+### Obtener alumnos por graduación
+GET http://localhost:1234/students?graduation=Verde
+
+### Obtener alumnos por graduación
+GET http://localhost:1234/students?graduation=Verde
+
+### Crear alumno
+POST http://localhost:1234/students
+Content-Type: application/json
+
+{
+  "name": "Santino",
+  "lastName":"Stimoli",
+  "phone": 34310411
+}
+
+### Modificar alumno
+PATCH http://localhost:1234/students/3
+Content-Type: application/json
+
+{
+    "name": "Juan Manuel"
+}

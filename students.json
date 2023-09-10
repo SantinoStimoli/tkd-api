@@ -1,0 +1,23 @@
+[
+  {
+    "graduation": "Blanco",
+    "id": 1,
+    "lastName": "Pérez",
+    "name": "Jonathan",
+    "phone": 28776739
+  },
+  {
+    "graduation": "Blanco",
+    "id": 2,
+    "lastName": "Rodriguez",
+    "name": "Juan",
+    "phone": 52214295
+  },
+  {
+    "graduation": "Verde",
+    "id": 3,
+    "lastName": "Rodriguez",
+    "name": "Juan",
+    "phone": 52214295
+  }
+]
