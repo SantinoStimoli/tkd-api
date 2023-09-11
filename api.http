@@ -24,3 +24,6 @@ Content-Type: application/json
 {
     "name": "Juan Manuel"
 }
+
+### Eliminar alumno
+DELETE  http://localhost:1234/students/3
