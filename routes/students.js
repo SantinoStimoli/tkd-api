@@ -10,3 +10,7 @@ studentsRouter.get('/:id', StudentsController.getById)
 studentsRouter.post('/', StudentsController.create)
 
 studentsRouter.patch('/:id', StudentsController.update)
+
+studentsRouter.patch('/changeActivitie/:id', StudentsController.changeActivitie)
+
+studentsRouter.delete('/:id', StudentsController.delete)

@@ -1,0 +1,26 @@
+### Crear alumno
+POST http://localhost:1234/students
+Content-Type: application/json
+
+{
+  "name": "Santino",
+  "lastName":"Stimoli",
+  "phone": 34310411,
+  "birthday": "04-11-2003",
+  "startDate": "??-03-2010",
+  "graduation": "negro (III)"
+}
+
+### Modificar alumno
+PATCH http://localhost:1234/students/2
+Content-Type: application/json
+
+{
+  "name": "Taihel"
+}
+
+### Cambiar actividad
+PATCH http://localhost:1234/students/changeActivitie/1
+
+### Eliminar alumno
+DELETE  http://localhost:1234/students/1

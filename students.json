@@ -1,23 +1,105 @@
 [
   {
-    "graduation": "Blanco",
     "id": 1,
-    "lastName": "Pérez",
     "name": "Jonathan",
-    "phone": 28776739
+    "lastName": "Pérez",
+    "graduation": "blanco",
+    "phone": 28776739,
+    "startDate": "15-08-2023",
+    "birthday": "05-02-19??",
+    "isActive": true
   },
   {
-    "graduation": "Blanco",
     "id": 2,
-    "lastName": "Rodriguez",
-    "name": "Juan",
-    "phone": 52214295
+    "name": "Taiel",
+    "lastName": "Duarte",
+    "graduation": "blanco",
+    "parents": [
+      {
+        "id": 1,
+        "link": "Padre",
+        "name": "Hernán",
+        "lastName": "Duarte",
+        "phone": 39325452
+      },
+      {
+        "id": 2,
+        "link": "Madre",
+        "name": "Liliana",
+        "lastName": "",
+        "phone": 62692790
+      }
+    ],
+    "startDate": "15-08-2023",
+    "birthday": "2?-11-20??",
+    "isActive": false
   },
   {
-    "graduation": "Verde",
     "id": 3,
+    "name": "Juan Manuel",
     "lastName": "Rodriguez",
-    "name": "Juan",
-    "phone": 52214295
+    "graduation": "blanco",
+    "parents": [
+      {
+        "id": 3,
+        "link": "Padre",
+        "name": "Gaston",
+        "lastName": "",
+        "phone": 52214295
+      },
+      {
+        "id": 4,
+        "link": "Madre",
+        "name": "Luciana",
+        "lastName": "",
+        "phone": 40374854
+      }
+    ],
+    "startDate": "22-08-2023",
+    "birthday": "23-02-2016",
+    "isActive": true
+  },
+  {
+    "id": 4,
+    "name": "Francesco",
+    "lastName": "Ramos",
+    "graduation": "blanco",
+    "parents": [
+      {
+        "id": 1,
+        "link": "Madre",
+        "name": "Alina",
+        "lastName": "",
+        "phone": 58449529
+      }
+    ],
+    "startDate": "24-08-2023",
+    "birthday": "07-02-2014",
+    "isActive": true
+  },
+  {
+    "id": 5,
+    "name": "Ciro",
+    "lastName": "Duarte",
+    "graduation": "blanco",
+    "parents": [
+      {
+        "id": 1,
+        "link": "Padre",
+        "name": "Hernán",
+        "lastName": "Duarte",
+        "phone": 39325452
+      },
+      {
+        "id": 2,
+        "link": "Madre",
+        "name": "Liliana",
+        "lastName": "",
+        "phone": 62692790
+      }
+    ],
+    "startDate": "24-08-2023",
+    "birthday": "2?-11-20??",
+    "isActive": false
   }
 ]

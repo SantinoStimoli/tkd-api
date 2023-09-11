@@ -3,15 +3,16 @@ import { validateModificationStudent, validateStudent } from '../schemas/student
 
 export class StudentsController {
   static async getAll (req, res) {
-    const { graduation } = req.query
-    const students = await StudentModel.getAll({ graduation })
-    res.json(students)
+    const { graduation, actives } = req.query
+    const students = await StudentModel.getAll({ graduation, actives })
+    if (students === null) res.status(400).json({ message: 'La busqueda no tiene coincidencias' })
+    else res.json(students)
   }
 
   static async getById (req, res) {
     const { id } = req.params
     const student = await StudentModel.getById({ id })
-    if (!student) res.status(404).send({ message: 'Student not found' })
+    if (!student) res.status(404).send({ message: 'Alumno no encontrado' })
     res.json(student)
   }
 
@@ -28,5 +29,19 @@ export class StudentsController {
     const { id } = req.params
     const updatedStudent = await StudentModel.update({ id, input: result.data })
     return res.json(updatedStudent)
+  }
+
+  static async delete (req, res) {
+    const { id } = req.params
+    const student = await StudentModel.delete({ id })
+    if (student === null) return res.status(400).json({ error: 'Alumno no encontrado' })
+    return res.json({ message: 'Alumno eliminado', data: student })
+  }
+
+  static async changeActivitie (req, res) {
+    const { id } = req.params
+    const student = await StudentModel.changeActivitie({ id })
+    if (student === null) return res.status(400).json({ error: 'Alumno no encontrado' })
+    return res.json(student)
   }
 }
