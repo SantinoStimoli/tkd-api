@@ -1,4 +1,5 @@
-import { StudentModel } from '../models/students.js'
+// import { StudentModel } from '../models/local/students.js' // LOCAL
+import { StudentModel } from '../models/mysql/students.js'
 import { validateModificationStudent, validateStudent } from '../schemas/students.js'
 
 export class StudentsController {
@@ -12,15 +13,15 @@ export class StudentsController {
   static async getById (req, res) {
     const { id } = req.params
     const student = await StudentModel.getById({ id })
-    if (!student) res.status(404).send({ message: 'Alumno no encontrado' })
+    if (!student) res.status(404).send({ message: 'El alumno no existe' })
     res.json(student)
   }
 
   static async create (req, res) {
     const result = validateStudent(req.body)
     if (result.error) return res.status(400).json({ error: result.error.message })
-    const newStudent = await StudentModel.create({ input: result.data })
-    res.send(newStudent)
+    const response = await StudentModel.create({ input: result.data })
+    res.send(response.student)
   }
 
   static async update (req, res) {
@@ -28,20 +29,20 @@ export class StudentsController {
     if (result.error) return res.status(400).json({ error: result.error.message })
     const { id } = req.params
     const updatedStudent = await StudentModel.update({ id, input: result.data })
-    return res.json(updatedStudent)
+    return res.json(updatedStudent.student)
   }
 
   static async delete (req, res) {
     const { id } = req.params
-    const student = await StudentModel.delete({ id })
-    if (student === null) return res.status(400).json({ error: 'Alumno no encontrado' })
-    return res.json({ message: 'Alumno eliminado', data: student })
+    const result = await StudentModel.delete({ id })
+    if (result.affectedRows === 0) return res.status(400).json({ error: 'El alumno no existe' })
+    return res.json({ message: `Alumno con el ID ${id} eliminado` })
   }
 
   static async changeActivitie (req, res) {
     const { id } = req.params
-    const student = await StudentModel.changeActivitie({ id })
-    if (student === null) return res.status(400).json({ error: 'Alumno no encontrado' })
-    return res.json(student)
+    const result = await StudentModel.changeActivitie({ id })
+    if (result.student === undefined) return res.status(400).json({ error: 'El alumno no existe' })
+    return res.json(result.student)
   }
 }

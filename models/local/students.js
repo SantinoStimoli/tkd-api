@@ -1,4 +1,4 @@
-import { parseBoolean, readStudentsJSON } from '../utils.js'
+import { parseBoolean, readStudentsJSON } from '../../utils.js'
 import { randomUUID } from 'node:crypto'
 
 const students = readStudentsJSON()

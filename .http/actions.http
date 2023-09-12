@@ -5,10 +5,10 @@ Content-Type: application/json
 {
   "name": "Santino",
   "lastName":"Stimoli",
-  "phone": 34310411,
+  "graduation": "negro (III)",
+  "phone": 1134310411,
   "birthday": "04-11-2003",
-  "startDate": "??-03-2010",
-  "graduation": "negro (III)"
+  "startDate": "??-03-2010"
 }
 
 ### Modificar alumno
@@ -16,11 +16,13 @@ PATCH http://localhost:1234/students/2
 Content-Type: application/json
 
 {
-  "name": "Taihel"
+  "name": "aaa",
+  "lastName": "aaa",
+  "phone": 1234567890
 }
 
 ### Cambiar actividad
-PATCH http://localhost:1234/students/changeActivitie/1
+PATCH http://localhost:1234/students/changeActivitie/8
 
 ### Eliminar alumno
-DELETE  http://localhost:1234/students/1
+DELETE  http://localhost:1234/students/8
