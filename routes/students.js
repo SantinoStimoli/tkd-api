@@ -1,16 +1,16 @@
 import { Router } from 'express'
 import { StudentsController } from '../controllers/students.js'
 
-export const studentsRouter = Router()
+export const StudentsRouter = Router()
 
-studentsRouter.get('/', StudentsController.getAll)
+StudentsRouter.get('/', StudentsController.getAll)
 
-studentsRouter.get('/:id', StudentsController.getById)
+StudentsRouter.get('/:id', StudentsController.getById)
 
-studentsRouter.post('/', StudentsController.create)
+StudentsRouter.post('/', StudentsController.create)
 
-studentsRouter.patch('/:id', StudentsController.update)
+StudentsRouter.patch('/:id', StudentsController.update)
 
-studentsRouter.patch('/changeActivitie/:id', StudentsController.changeActivitie)
+StudentsRouter.patch('/changeActivitie/:id', StudentsController.changeActivitie)
 
-studentsRouter.delete('/:id', StudentsController.delete)
+StudentsRouter.delete('/:id', StudentsController.delete)

@@ -17,6 +17,8 @@ export function validateStudent (object) {
   return studentSchema.safeParse(object)
 }
 
-export function validateModificationStudent (object) {
+export function validateStudentModification (object) {
   return studentSchema.partial().safeParse(object)
 }
+
+// !IMPORTANTE HACER TODAS LAS VALIDACIONES POR CANTIDADES DE CARACTERES

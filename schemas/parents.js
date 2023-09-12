@@ -12,6 +12,6 @@ export function validateParent (object) {
   return parentSchema.safeParse(object)
 }
 
-export function validateModificationParent (object) {
+export function validateParentModification (object) {
   return parentSchema.partial().safeParse(object)
 }

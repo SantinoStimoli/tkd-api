@@ -10,7 +10,7 @@ const config = {
 
 const connection = await mysql.createConnection(config)
 
-export class StudentModel {
+export class StudentsModel {
   static async getAll ({ graduation, actives }) {
     const [result] = await connection.query('SELECT * FROM students' + (graduation !== undefined || actives !== undefined ? ' WHERE' + (graduation !== undefined ? ` graduation = "${graduation}"` : '') + (graduation !== undefined && actives !== undefined ? ' AND' : '') + (actives !== undefined ? ` isActive = ${actives}` : '') : ''))
     return result

@@ -1,3 +1,19 @@
+### Obtener todos los alumnos
+GET http://localhost:1234/students
+
+### Obtener alumno por ID
+GET http://localhost:1234/students/1
+
+### Filtrar alumnos por graduación
+GET http://localhost:1234/students?graduation=blanco
+
+### Filtrar alumnos por actividad
+GET http://localhost:1234/students?actives=true
+
+### Filtrar alumnos por actividad y graduación
+GET http://localhost:1234/students?actives=false&graduation=verde
+
+
 ### Crear alumno
 POST http://localhost:1234/students
 Content-Type: application/json
@@ -11,6 +27,7 @@ Content-Type: application/json
   "startDate": "??-03-2010"
 }
 
+
 ### Modificar alumno
 PATCH http://localhost:1234/students/2
 Content-Type: application/json
@@ -23,6 +40,7 @@ Content-Type: application/json
 
 ### Cambiar actividad
 PATCH http://localhost:1234/students/changeActivitie/8
+
 
 ### Eliminar alumno
 DELETE  http://localhost:1234/students/8

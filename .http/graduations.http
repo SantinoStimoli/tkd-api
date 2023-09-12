@@ -1,0 +1,24 @@
+### Obtener todos los graduacións
+GET http://localhost:1234/graduations
+
+### Obtener graduación por ID
+GET http://localhost:1234/graduations/1
+
+### Crear graduación
+POST http://localhost:1234/graduations
+Content-Type: application/json
+
+{
+  "graduation": "mastro"
+}
+
+### Modificar graduación
+PATCH http://localhost:1234/graduations/20
+Content-Type: application/json
+
+{
+  "graduation": "maestro"
+}
+
+### Eliminar graduación
+DELETE  http://localhost:1234/graduations/1
