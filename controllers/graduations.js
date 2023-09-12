@@ -39,7 +39,7 @@ export class GraduationsController {
       const { id } = req.params
       const result = await GraduationsModel.delete({ id })
       if (result.affectedRows === 0) return res.status(400).json({ error: 'La graduación no existe' })
-      return res.json({ message: `Graduación con el ID ${id} eliminado` })
+      return res.json({ message: `Graduación con ID ${id} eliminado` })
     } catch (e) {
       return res.status(400).json({ message: 'La graduación está relacionada con algún alumno, no puede ser eliminada' })
     }

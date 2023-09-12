@@ -1,4 +1,4 @@
-### Obtener todos los graduacións
+### Obtener todas las graduaciónes
 GET http://localhost:1234/graduations
 
 ### Obtener graduación por ID

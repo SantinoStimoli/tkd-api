@@ -36,7 +36,7 @@ export class StudentsController {
     const { id } = req.params
     const result = await StudentsModel.delete({ id })
     if (result.affectedRows === 0) return res.status(400).json({ error: 'El alumno no existe' })
-    return res.json({ message: `Alumno con el ID ${id} eliminado` })
+    return res.json({ message: `Alumno con ID ${id} eliminado` })
   }
 
   static async changeActivitie (req, res) {

@@ -1,0 +1,29 @@
+### Obtener todos los padres
+GET http://localhost:1234/parents
+
+### Obtener padre por ID
+GET http://localhost:1234/parents/1
+
+### Crear padre
+POST http://localhost:1234/parents
+Content-Type: application/json
+
+{
+  "link": "madre",
+  "name": "ernan",
+  "lastName": "Stimoli",
+  "phone": 1234567890
+}
+
+### Modificar padre
+PATCH http://localhost:1234/parents/6
+Content-Type: application/json
+
+{
+  "link": "padre",
+  "name": "Hernan",
+  "lastName": "Stimoli"
+}
+
+### Eliminar padre
+DELETE  http://localhost:1234/parents/1
