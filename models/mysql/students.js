@@ -1,14 +1,7 @@
 import mysql from 'mysql2/promise'
+import { SQL_CONFIG } from '../../global/global.js'
 
-const config = {
-  host: 'localhost',
-  user: 'root',
-  port: 3306,
-  password: '1234',
-  database: 'tkd_db'
-}
-
-const connection = await mysql.createConnection(config)
+const connection = await mysql.createConnection(SQL_CONFIG)
 
 export class StudentsModel {
   static async getAll ({ graduation, actives }) {
