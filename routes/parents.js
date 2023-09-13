@@ -1,14 +1,19 @@
 import { Router } from 'express'
 import { ParentsController } from '../controllers/parents.js'
 
-export const ParentsRouter = Router()
+export const createParentsRouter = ({ parentsModel }) => {
+  const ParentsRouter = Router()
+  const parentsController = new ParentsController({ parentsModel })
 
-ParentsRouter.get('/', ParentsController.getAll)
+  ParentsRouter.get('/', parentsController.getAll)
 
-ParentsRouter.get('/:id', ParentsController.getById)
+  ParentsRouter.get('/:id', parentsController.getById)
 
-ParentsRouter.post('/', ParentsController.create)
+  ParentsRouter.post('/', parentsController.create)
 
-ParentsRouter.patch('/:id', ParentsController.update)
+  ParentsRouter.patch('/:id', parentsController.update)
 
-ParentsRouter.delete('/:id', ParentsController.delete)
+  ParentsRouter.delete('/:id', parentsController.delete)
+
+  return ParentsRouter
+}

@@ -1,7 +1,6 @@
 import mysql from 'mysql2/promise'
-import { SQL_CONFIG } from '../../global/global.js'
 
-const connection = await mysql.createConnection(SQL_CONFIG)
+const connection = await mysql.createConnection(process.env.DATABASE_URL)
 
 export class GraduationsModel {
   static async getAll () {

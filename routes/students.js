@@ -1,16 +1,21 @@
 import { Router } from 'express'
 import { StudentsController } from '../controllers/students.js'
 
-export const StudentsRouter = Router()
+export const createStudentsRouter = ({ studentsModel }) => {
+  const StudentsRouter = Router()
+  const studentsController = new StudentsController({ studentsModel })
 
-StudentsRouter.get('/', StudentsController.getAll)
+  StudentsRouter.get('/', studentsController.getAll)
 
-StudentsRouter.get('/:id', StudentsController.getById)
+  StudentsRouter.get('/:id', studentsController.getById)
 
-StudentsRouter.post('/', StudentsController.create)
+  StudentsRouter.post('/', studentsController.create)
 
-StudentsRouter.patch('/:id', StudentsController.update)
+  StudentsRouter.patch('/:id', studentsController.update)
 
-StudentsRouter.patch('/changeActivitie/:id', StudentsController.changeActivitie)
+  StudentsRouter.patch('/changeActivitie/:id', studentsController.changeActivitie)
 
-StudentsRouter.delete('/:id', StudentsController.delete)
+  StudentsRouter.delete('/:id', studentsController.delete)
+
+  return StudentsRouter
+}

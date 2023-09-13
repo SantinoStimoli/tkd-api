@@ -1,18 +1,22 @@
 import express, { json } from 'express'
 import pc from 'picocolors'
-import { StudentsRouter } from './routes/students.js'
-import { GraduationsRouter } from './routes/graduations.js'
+import 'dotenv/config'
 import { corsMiddleware } from './middleware/cors.js'
-import { ParentsRouter } from './routes/parents.js'
+import { createStudentsRouter } from './routes/students.js'
+import { createGraduationsRouter } from './routes/graduations.js'
+import { createParentsRouter } from './routes/parents.js'
+import { StudentsModel } from './models/students.js'
+import { GraduationsModel } from './models/graduations.js'
+import { ParentsModel } from './models/parents.js'
 
 const app = express()
 app.use(json())
 app.use(corsMiddleware())
 app.disable('x-powered-by')
 
-app.use('/students', StudentsRouter)
-app.use('/graduations', GraduationsRouter)
-app.use('/parents', ParentsRouter)
+app.use('/students', createStudentsRouter({ studentsModel: StudentsModel }))
+app.use('/graduations', createGraduationsRouter({ graduationsModel: GraduationsModel }))
+app.use('/parents', createParentsRouter({ parentsModel: ParentsModel }))
 
 app.use((req, res) => {
   res.status(404).send('<h1>404 - Not Found</h1>')
