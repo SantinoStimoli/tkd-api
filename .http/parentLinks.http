@@ -1,0 +1,24 @@
+### Obtener todos los link de padres
+GET http://localhost:1234/parent-link
+
+### Obtener link de padre por ID
+GET http://localhost:1234/parent-link/4
+
+### Crear link de padre
+POST http://localhost:1234/parent-link
+Content-Type: application/json
+
+{
+  "link": "tia"
+}
+
+### Modificar link de padre
+PATCH http://localhost:1234/parent-link/4
+Content-Type: application/json
+
+{
+  "link": "tio"
+}
+
+### Eliminar link de padre
+DELETE  http://localhost:1234/parent-link/4

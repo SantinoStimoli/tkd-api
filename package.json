@@ -34,9 +34,9 @@
     "url": "git+https://github.com/SantinoStimoli/node.git"
   },
   "scripts": {
+    "dev": "node --watch ./app.js",
     "start": "node ./app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "w": "node --watch ./app.js"
+    "test": "echo \"message: no test specified\" && exit 1"
   },
   "type": "module",
   "version": "1.0.0"

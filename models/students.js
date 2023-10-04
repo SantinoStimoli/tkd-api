@@ -1,7 +1,7 @@
 import mysql from 'mysql2/promise'
-import { DEFAULT_CONFIG } from '../global/global.js'
+import { CONFIG } from '../global/global.js'
 
-const connectionContent = process.env.DATABASE_URL ?? DEFAULT_CONFIG
+const connectionContent = CONFIG
 const connection = await mysql.createConnection(connectionContent)
 
 export class StudentsModel {

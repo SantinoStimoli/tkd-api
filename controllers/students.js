@@ -21,14 +21,14 @@ export class StudentsController {
 
   create = async (req, res) => {
     const result = validateStudent(req.body)
-    if (result.error) return res.status(400).json({ error: result.error.message })
+    if (result.error) return res.status(400).json({ message: result.error.message })
     const response = await this.studentsModel.create({ input: result.data })
     res.send(response.student)
   }
 
   update = async (req, res) => {
     const result = validateStudentModification(req.body)
-    if (result.error) return res.status(400).json({ error: result.error.message })
+    if (result.error) return res.status(400).json({ message: result.error.message })
     const { id } = req.params
     const updatedStudent = await this.studentsModel.update({ id, input: result.data })
     return res.json(updatedStudent.student)
@@ -37,14 +37,14 @@ export class StudentsController {
   delete = async (req, res) => {
     const { id } = req.params
     const result = await this.studentsModel.delete({ id })
-    if (result.affectedRows === 0) return res.status(400).json({ error: 'El alumno no existe' })
+    if (result.affectedRows === 0) return res.status(400).json({ message: 'El alumno no existe' })
     return res.json({ message: `Alumno con ID ${id} eliminado` })
   }
 
   changeActivitie = async (req, res) => {
     const { id } = req.params
     const result = await this.studentsModel.changeActivitie({ id })
-    if (result.student === undefined) return res.status(400).json({ error: 'El alumno no existe' })
+    if (result.student === undefined) return res.status(400).json({ message: 'El alumno no existe' })
     return res.json(result.student)
   }
 }

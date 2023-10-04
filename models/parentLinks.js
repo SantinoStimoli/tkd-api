@@ -4,45 +4,30 @@ import { CONFIG } from '../global/global.js'
 const connectionContent = CONFIG
 const connection = await mysql.createConnection(connectionContent)
 
-export class ParentsModel {
+export class ParentLinksModel {
   static async getAll () {
-    const [result] = await connection.query('SELECT * FROM parents')
+    const [result] = await connection.query('SELECT * FROM parent_link')
     return result
   }
 
   static async getById ({ id }) {
-    const [[result]] = await connection.query('SELECT * FROM parents WHERE id = ?', [id])
+    const [[result]] = await connection.query('SELECT * FROM parent_link WHERE id = ?', [id])
     return result
   }
 
   static async create ({ input }) {
-    const [result] = await connection.query('INSERT INTO parents (link, name, lastName, phone) VALUES (?, ?, ?, ?);', [input.link, input.name, input.lastName, input.phone])
+    const [result] = await connection.query('INSERT INTO parent_link (link) VALUES (?);', [input.link])
     result.parent = await this.getById({ id: result.insertId })
     return result
   }
 
   static async update ({ id, input }) {
-    let sql = 'UPDATE parents SET '
+    let sql = 'UPDATE parent_link SET '
     const values = []
 
     if (input.link !== undefined) {
       sql += 'link = ?, '
       values.push(input.link)
-    }
-
-    if (input.name !== undefined) {
-      sql += 'name = ?, '
-      values.push(input.name)
-    }
-
-    if (input.lastName !== undefined) {
-      sql += 'lastName = ?, '
-      values.push(input.lastName)
-    }
-
-    if (input.phone !== undefined) {
-      sql += 'phone = ?, '
-      values.push(input.phone)
     }
 
     if (values.length > 0) sql = sql.slice(0, -2)
@@ -56,7 +41,7 @@ export class ParentsModel {
   }
 
   static async delete ({ id }) {
-    const [result] = await connection.query('DELETE FROM parents WHERE id = ?', [id])
+    const [result] = await connection.query('DELETE FROM parent_link WHERE id = ?', [id])
     return result
   }
 }

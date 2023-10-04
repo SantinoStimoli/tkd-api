@@ -1,4 +1,4 @@
-export const DEFAULT_CONFIG = {
+const DEFAULT_CONFIG = {
   host: 'localhost',
   user: 'root',
   port: 3306,
@@ -7,3 +7,6 @@ export const DEFAULT_CONFIG = {
 }
 
 export const ACCEPTED_ORIGINS = ['*']
+
+// export const CONFIG = process.env.DATABASE_URL ?? DEFAULT_CONFIG
+export const CONFIG = DEFAULT_CONFIG
